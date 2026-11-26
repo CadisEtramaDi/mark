@@ -1,0 +1,2033 @@
+/* ==========================================================================
+   ARCHITECTURAL STRUCTURAL DRAFTING & ENVELOPE STYLESHEET
+   PROJECT: EKD (Encourage Kingdom Date) Structural Transmittal
+   ========================================================================== */
+
+:root {
+  /* Architectural Studio & Moodboard Aesthetic Theme */
+  --bg-workspace: #14100e;
+  --sheet-bg: #1a1512;
+  --grid-minor: rgba(229, 192, 123, 0.08);
+  --grid-major: rgba(229, 192, 123, 0.22);
+  --border-cad: #c5a059;
+  --border-cad-muted: rgba(197, 160, 89, 0.35);
+  --text-main: #fdfaf5;
+  --text-muted: #dfd3c3;
+  --text-dim: #c5a059;
+  --accent-cyan: #e5c07b;
+  --accent-gold: #f3d38c;
+  --accent-stamp: #c2410c;
+  --seal-base: #b45309;
+  --seal-highlight: #fde68a;
+
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-tech: 'Rajdhani', sans-serif;
+  --font-hand: 'Architects Daughter', cursive;
+  --font-script: 'Great Vibes', cursive;
+  --font-cinzel: 'Cinzel', serif;
+  --font-body: 'Space Grotesk', sans-serif;
+
+  --ruler-bg: #1c1714;
+  --ruler-border: rgba(197, 160, 89, 0.3);
+  --card-bg: rgba(26, 21, 18, 0.78);
+  --card-border: rgba(197, 160, 89, 0.28);
+  --envelope-bg: linear-gradient(135deg, #241d1a 0%, #342a25 50%, #1b1513 100%);
+  --envelope-flap-bg: #2d2420;
+}
+
+/* Vellum / Architectural Paper Light Theme */
+body.vellum-theme {
+  --bg-workspace: #e2e8f0;
+  --sheet-bg: #f8fafc;
+  --grid-minor: rgba(30, 41, 59, 0.04);
+  --grid-major: rgba(30, 41, 59, 0.12);
+  --border-cad: #1e293b;
+  --border-cad-muted: rgba(30, 41, 59, 0.35);
+  --text-main: #0f172a;
+  --text-muted: #334155;
+  --text-dim: #475569;
+  --accent-cyan: #0284c7;
+  --accent-gold: #d97706;
+  --accent-stamp: #dc2626;
+  --seal-base: #b45309;
+  --seal-highlight: #fde68a;
+
+  --ruler-bg: #f1f5f9;
+  --ruler-border: rgba(30, 41, 59, 0.2);
+  --card-bg: rgba(241, 245, 249, 0.85);
+  --card-border: rgba(30, 41, 59, 0.2);
+  --envelope-bg: linear-gradient(135deg, #cbd5e1 0%, #e2e8f0 50%, #94a3b8 100%);
+  --envelope-flap-bg: #94a3b8;
+}
+
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0c1a29;
+  background-image: url('bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   SHEET BOTTOM CONTROLS & UTILITIES
+   ========================================================================== */
+.sheet-bottom-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem 0;
+  padding: 0.5rem 0;
+  border-top: 1px dashed var(--border-cad-muted);
+}
+
+.sheet-action-link {
+  background: transparent;
+  border: 1px solid var(--border-cad-muted);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.sheet-action-link:hover {
+  background: var(--border-cad);
+  color: #04101e;
+  border-color: var(--border-cad);
+}
+
+.cad-btn {
+  background: transparent;
+  border: 1px solid var(--border-cad);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+}
+
+.cad-btn:hover {
+  background: var(--border-cad);
+  color: #04101e;
+}
+
+body.vellum-theme .cad-btn:hover {
+  background: var(--border-cad);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   STAGE 1: STRUCTURAL ENVELOPE STAGE (ARCHITECTURAL MOODBOARD BACKGROUND)
+   ========================================================================== */
+.envelope-stage {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  overflow: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  background-image: url('bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Translucent backdrop overlay to make collage visible while highlighting envelope */
+.aesthetic-bg-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(8, 20, 36, 0.42) 0%, rgba(4, 12, 22, 0.70) 100%);
+  backdrop-filter: blur(1.5px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.vellum-theme .aesthetic-bg-backdrop {
+  background: radial-gradient(circle at center, rgba(248, 250, 252, 0.5) 0%, rgba(203, 213, 225, 0.75) 100%);
+}
+
+/* Envelope Container & 3D Setup */
+.envelope-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1200px;
+}
+
+.architect-envelope {
+  position: relative;
+  width: min(580px, 92vw);
+  height: clamp(240px, 64vw, 380px);
+  background: var(--envelope-bg);
+  border: 2px solid var(--border-cad);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(197, 160, 89, 0.25),
+    inset 0 0 20px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.architect-envelope:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.75),
+    0 0 45px rgba(197, 160, 89, 0.35);
+}
+
+/* Envelope 3D Top Flap - proportional height so it scales on all phones */
+.envelope-flap-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 48%;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  z-index: 5;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flap-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.4));
+}
+
+.flap-polygon {
+  fill: var(--envelope-flap-bg);
+  stroke: var(--border-cad);
+  stroke-width: 1.5;
+}
+
+.flap-stitch {
+  fill: none;
+  stroke: var(--accent-cyan);
+  stroke-width: 1.2;
+}
+
+/* When envelope is opened */
+body.envelope-opened .envelope-flap-top {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+/* Envelope Front Details & Markings */
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px);
+  background-size: 35px 35px;
+  pointer-events: none;
+}
+
+.env-stitch-border {
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed var(--border-cad-muted);
+  pointer-events: none;
+}
+
+.env-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent-cyan);
+}
+
+.env-corner-tl {
+  top: 12px;
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.env-corner-tr {
+  top: 12px;
+  right: 12px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.env-corner-bl {
+  bottom: 12px;
+  left: 12px;
+  border-right: none;
+  border-top: none;
+}
+
+.env-corner-br {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+}
+
+.env-spec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 2;
+}
+
+.env-spec-pill {
+  background: rgba(197, 160, 89, 0.15);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border-cad-muted);
+  border-radius: 2px;
+}
+
+.env-priority {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* Center Envelope Lettering (Positioned cleanly below the seal at the bottom) */
+.env-main-text {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  margin-bottom: 0.85rem;
+  pointer-events: auto;
+}
+
+.env-script-recipient {
+  font-family: var(--font-script);
+  font-size: clamp(1.8rem, 6.5vw, 2.85rem);
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 192, 123, 0.45);
+  letter-spacing: 0.02em;
+  outline: none;
+  cursor: text;
+}
+
+body.vellum-theme .env-script-recipient {
+  color: #0f172a;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.env-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: clamp(0.55rem, 2vw, 0.7rem);
+  letter-spacing: clamp(0.08em, 0.4vw, 0.16em);
+  color: var(--accent-gold);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.env-sub-divider {
+  font-size: 0.6rem;
+  opacity: 0.7;
+}
+
+.env-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: clamp(0.5rem, 1.8vw, 0.6rem);
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border-cad-muted);
+  padding-top: 0.4rem;
+}
+
+/* ==========================================================================
+   INTERACTIVE GOLDEN ARCHITECTURAL WAX SEAL
+   ========================================================================== */
+.architectural-seal-btn {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(62px, 15vw, 82px);
+  height: clamp(62px, 15vw, 82px);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 20;
+  outline: none;
+}
+
+.seal-glow-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.4) 0%, transparent 70%);
+  animation: sealPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes sealPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+}
+
+.seal-metallic-disc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--seal-highlight) 0%, var(--seal-base) 60%, #78350f 100%);
+  border: 3px double #fde68a;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #78350f;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.architectural-seal-btn:hover .seal-metallic-disc {
+  transform: scale(1.08) rotate(5deg);
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(251, 191, 36, 0.8),
+    inset 0 2px 6px rgba(255, 255, 255, 0.8);
+}
+
+.seal-icon-svg {
+  width: 62px;
+  height: 62px;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.4));
+}
+
+.seal-text-arch {
+  position: absolute;
+  bottom: 12px;
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #451a03;
+}
+
+/* Prompt underneath envelope (matching reference) */
+.envelope-prompt-text {
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(14, 38, 64, 0.85);
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border-cad);
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  animation: bounceHint 2s infinite ease-in-out;
+}
+
+@keyframes bounceHint {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.pulse-icon {
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   VIEW TOGGLING LOGIC: ENVELOPE CLOSED VS OPENED (LETTER VIEW)
+   ========================================================================== */
+body.envelope-closed .drafting-viewport {
+  display: none;
+}
+
+body.envelope-opened .envelope-stage {
+  display: none;
+}
+
+body.envelope-opened {
+  background: #14100e !important;
+  background-image: none !important;
+}
+
+body.envelope-opened .drafting-viewport {
+  display: flex;
+  animation: letterSlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes letterSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================================================
+   STAGE 2: DRAFTING VIEWPORT & BLUEPRINT SHEET (WITH MOODBOARD IN LETTER SHEET)
+   ========================================================================== */
+.drafting-viewport {
+  position: relative;
+  padding: 2.5rem 1.5rem 4rem 3.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #14100e;
+}
+
+.cad-ruler {
+  position: absolute;
+  background: var(--ruler-bg);
+  border: 1px solid var(--ruler-border);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  user-select: none;
+}
+
+.cad-ruler-horizontal {
+  top: 0;
+  left: 3rem;
+  right: 0;
+  height: 24px;
+  border-bottom: 2px solid var(--border-cad);
+  overflow: hidden;
+}
+
+.ruler-marks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  line-height: 22px;
+  letter-spacing: 0.1em;
+}
+
+.cad-ruler-vertical {
+  top: 24px;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  border-right: 2px solid var(--border-cad);
+  overflow: hidden;
+}
+
+.ruler-marks-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1rem 0;
+  align-items: center;
+  writing-mode: vertical-lr;
+  letter-spacing: 0.15em;
+}
+
+/* Drawing Sheet - Moodboard image directly applied with warm architectural tone */
+.blueprint-sheet {
+  position: relative;
+  width: 100%;
+  max-width: 1060px;
+  background-color: #1a1512;
+  background-image:
+    linear-gradient(rgba(18, 14, 12, 0.72), rgba(12, 9, 8, 0.85)),
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px),
+    url('letter-bg.jpg');
+  background-size: auto, 100px 100px, 100px 100px, 20px 20px, 20px 20px, cover;
+  background-position: center, -1px -1px, -1px -1px, -1px -1px, -1px -1px, center top;
+  background-repeat: no-repeat, repeat, repeat, repeat, repeat, no-repeat;
+  border: 3px double var(--border-cad);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65), 0 0 25px rgba(197, 160, 89, 0.22);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.blueprint-sheet.no-grid {
+  background-image: none !important;
+}
+
+.sheet-border-grid {
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--border-cad-muted);
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+.coord-top,
+.coord-bottom {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+}
+
+.coord-top {
+  top: -14px;
+}
+
+.coord-bottom {
+  bottom: -14px;
+}
+
+.coord-left,
+.coord-right {
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: 600;
+}
+
+.coord-left {
+  left: -14px;
+}
+
+.coord-right {
+  right: -14px;
+}
+
+.sheet-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem 1.5rem 0.5rem 1.5rem;
+}
+
+/* Header & Compass */
+.sheet-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-bottom: 2px solid var(--border-cad);
+  padding-bottom: 1.25rem;
+}
+
+.spec-classification {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.sheet-title {
+  font-family: var(--font-tech);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.sheet-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+  margin-top: 0.35rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.compass-rose {
+  width: 72px;
+  height: 72px;
+  color: var(--border-cad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compass-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.drawing-meta-box {
+  border: 1px solid var(--border-cad-muted);
+  background: var(--card-bg);
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.drawing-meta-box .lbl {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.drawing-meta-box .val {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.status-issued {
+  color: var(--accent-gold) !important;
+}
+
+/* Dimension Lines */
+.dimension-line {
+  display: flex;
+  align-items: center;
+  margin: 1.25rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+  user-select: none;
+}
+
+.dim-bar {
+  flex-grow: 1;
+  height: 1px;
+  background: var(--border-cad);
+}
+
+.dim-tick {
+  width: 8px;
+  height: 14px;
+  position: relative;
+}
+
+.dim-tick::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 2px;
+  height: 14px;
+  background: var(--border-cad);
+  transform: rotate(45deg);
+}
+
+.dim-label {
+  padding: 0 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Transmittal Grid */
+.transmittal-metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  border: 1px solid var(--border-cad);
+  background: var(--card-bg);
+  margin-bottom: 1.5rem;
+}
+
+.meta-cell {
+  padding: 0.75rem 1rem;
+  border-right: 1px solid var(--border-cad-muted);
+  border-bottom: 1px solid var(--border-cad-muted);
+  font-family: var(--font-mono);
+}
+
+.meta-cell:last-child {
+  border-right: none;
+}
+
+.cell-label {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.cell-data {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.02em;
+}
+
+.cell-data.highlight-target {
+  color: var(--accent-gold);
+}
+
+.scripture-ref {
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+}
+
+/* Letter Content */
+.letter-drafting-body {
+  position: relative;
+  padding: 1rem 0 2rem 0;
+}
+
+.section-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-bubble {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--border-cad);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  background: var(--card-bg);
+  flex-shrink: 0;
+}
+
+.sec-top {
+  font-size: 0.55rem;
+  color: var(--text-dim);
+  line-height: 1;
+  border-bottom: 1px solid var(--border-cad);
+  padding-bottom: 1px;
+}
+
+.sec-bottom {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  line-height: 1;
+  padding-top: 1px;
+}
+
+.section-title-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.section-header-text {
+  font-family: var(--font-tech);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.line-fill {
+  flex-grow: 1;
+  height: 1px;
+  background: var(--border-cad-muted);
+}
+
+.cad-crosshair {
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.letter-personal-message {
+  margin-bottom: 1.75rem;
+}
+
+.salutation-title {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.3rem, 3.8vw, 1.85rem);
+  color: var(--accent-gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  border-bottom: 1px dashed var(--border-cad-muted);
+  padding-bottom: 0.6rem;
+}
+
+.letter-para {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.2vw, 1.12rem);
+  line-height: 1.85;
+  color: var(--text-main);
+  margin-bottom: 1.2rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.architect-handwritten-note {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--accent-gold);
+  border-left: 3px solid var(--accent-gold);
+  padding: 0.85rem 1.4rem;
+  margin: 1.5rem 0;
+  line-height: 1.6;
+  background: rgba(229, 192, 123, 0.08);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.verse-reference {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  display: block;
+}
+
+.letter-closing-phrase {
+  margin: 1.5rem 0 2rem 0;
+}
+
+.closing-thanks {
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.handwritten-cite {
+  display: block;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.formal-spec-text {
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+.formal-spec-text p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.spec-code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.05em;
+  margin-right: 0.35rem;
+}
+
+/* Detail Spec Cards */
+.structural-specs-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 1.75rem 0;
+}
+
+.spec-card {
+  border: 1px solid var(--border-cad);
+  background: var(--card-bg);
+  padding: 1rem;
+  position: relative;
+}
+
+.spec-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--accent-cyan);
+  border-left: 2px solid var(--accent-cyan);
+}
+
+.spec-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--border-cad-muted);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+}
+
+.spec-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.spec-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+}
+
+.spec-list {
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.spec-list li strong {
+  color: var(--text-dim);
+}
+
+.editable-field {
+  color: var(--accent-gold);
+  border-bottom: 1px dotted var(--accent-gold);
+  padding: 0 0.2rem;
+  outline: none;
+  cursor: text;
+}
+
+.editable-field:focus {
+  background: rgba(251, 191, 36, 0.15);
+}
+
+/* Signatures */
+.signatures-assembly {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-cad-muted);
+}
+
+.sig-block {
+  min-width: 260px;
+  flex: 1;
+}
+
+.sig-line {
+  border-bottom: 1px solid var(--border-cad);
+  min-height: 48px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 0.35rem;
+}
+
+.handwritten-sig {
+  font-family: var(--font-hand);
+  font-size: 1.45rem;
+  color: var(--accent-cyan);
+  transform: rotate(-2deg);
+}
+
+.sig-role {
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-top: 0.4rem;
+  color: var(--text-main);
+}
+
+.sig-meta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+/* Stamp on Letter */
+.architect-seal {
+  position: absolute;
+  right: 8%;
+  bottom: 15%;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  pointer-events: none;
+  display: none;
+  opacity: 0;
+  z-index: 10;
+  transform: rotate(-14deg);
+  transition: opacity 0.4s ease;
+}
+
+.architect-seal.stamped {
+  display: block;
+  opacity: 0.92;
+  animation: stampDown 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes stampDown {
+  0% {
+    transform: scale(3.5) rotate(-35deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) rotate(-14deg);
+    opacity: 0.92;
+  }
+}
+
+.seal-inner {
+  width: 100%;
+  height: 100%;
+  border: 3px double var(--accent-stamp);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--accent-stamp);
+  font-family: var(--font-mono);
+  padding: 0.5rem;
+  position: relative;
+  box-shadow: inset 0 0 0 2px var(--accent-stamp);
+}
+
+.seal-text-top {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.seal-ekd {
+  font-family: var(--font-tech);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  margin: 0.2rem 0;
+}
+
+.seal-date {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.seal-text-bottom {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Transmittal Action Module (RSVP) */
+.transmittal-action-module {
+  margin: 2.5rem 0 1.5rem 0;
+  border: 2px solid var(--border-cad);
+  background: var(--card-bg);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.action-frame {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.action-lead {
+  max-width: 480px;
+}
+
+.indicator-led {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+  margin-right: 0.4rem;
+}
+
+.lead-title {
+  font-family: var(--font-tech);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+}
+
+.lead-desc {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.stamp-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.stamp-action-btn .btn-icon {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.stamp-action-btn .btn-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.stamp-action-btn .btn-text strong {
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+}
+
+.stamp-action-btn .btn-text small {
+  font-size: 0.65rem;
+  opacity: 0.8;
+}
+
+.accept-btn {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+.accept-btn:hover {
+  background: #22c55e;
+  color: #04101e;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+}
+
+.decline-btn {
+  border-color: #94a3b8;
+  color: #94a3b8;
+}
+
+.decline-btn:hover {
+  background: #94a3b8;
+  color: #04101e;
+}
+
+/* CAD Title Block */
+.cad-title-block {
+  display: grid;
+  grid-template-columns: 180px 1fr 180px 110px;
+  border: 2px solid var(--border-cad);
+  background: var(--card-bg);
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+}
+
+.block-col {
+  border-right: 1px solid var(--border-cad);
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.block-col:last-child {
+  border-right: none;
+}
+
+.col-rev .col-head {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border-cad-muted);
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.rev-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+}
+
+.rev-row.active-rev {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.tb-label {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+.tb-project-name {
+  font-family: var(--font-tech);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.05em;
+}
+
+.tb-subtext {
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+}
+
+.tb-client {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.col-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+}
+
+.detail-cell {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+}
+
+.tb-micro {
+  color: var(--text-dim);
+}
+
+.tb-value {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.col-sheet-no {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(197, 160, 89, 0.08);
+}
+
+.sheet-no-label {
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+.sheet-number {
+  font-family: var(--font-tech);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+  margin: 0.2rem 0;
+}
+
+.sheet-count {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+}
+
+/* Modal */
+.cad-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.cad-modal.active {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 11, 9, 0.88);
+  backdrop-filter: blur(5px);
+}
+
+.modal-dialog {
+  position: relative;
+  z-index: 10;
+  background: var(--sheet-bg);
+  border: 2px solid var(--border-cad);
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(197, 160, 89, 0.25);
+  padding: 1.5rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-cad);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  color: var(--text-main);
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.receipt-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-body h3 {
+  font-family: var(--font-tech);
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.modal-body p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.receipt-specs {
+  border: 1px dashed var(--border-cad);
+  background: var(--card-bg);
+  padding: 0.75rem;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.rec-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.rec-row:last-child {
+  margin-bottom: 0;
+  border-top: 1px solid var(--border-cad-muted);
+  padding-top: 0.35rem;
+}
+
+.text-green {
+  color: #22c55e;
+}
+
+.modal-notice {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+  background: rgba(197, 160, 89, 0.1);
+  padding: 0.5rem;
+  border-radius: 2px;
+}
+
+.modal-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Tablets & Small Laptops (<= 860px) */
+@media (max-width: 860px) {
+  .drafting-viewport {
+    padding: 1.25rem 0.5rem 3rem 0.5rem;
+  }
+
+  .cad-ruler {
+    display: none !important;
+  }
+
+  .blueprint-sheet {
+    padding: 1.25rem 0.85rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .sheet-title {
+    font-size: 2rem;
+  }
+
+  .sheet-header {
+    gap: 1rem;
+  }
+
+  .cad-title-block {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .block-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border-cad);
+  }
+
+  .architect-seal {
+    width: 140px;
+    height: 140px;
+    right: 4%;
+    bottom: 10%;
+  }
+
+  .seal-ekd {
+    font-size: 1.7rem;
+  }
+}
+
+/* Mobile Devices (<= 640px) */
+@media (max-width: 640px) {
+  .envelope-stage {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .architect-envelope {
+    width: min(100%, 94vw);
+    height: clamp(250px, 68vw, 320px);
+  }
+
+  .envelope-front {
+    padding: 1rem 0.75rem;
+  }
+
+  .env-spec-header {
+    font-size: 0.6rem;
+  }
+
+  .env-spec-pill {
+    padding: 0.15rem 0.4rem;
+  }
+
+  .env-bottom-bar {
+    font-size: 0.52rem;
+    padding-top: 0.3rem;
+  }
+
+  .env-micro-coord {
+    display: none;
+  }
+
+  .envelope-prompt-text {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.85rem;
+    width: auto;
+    max-width: 95vw;
+    text-align: center;
+    margin-top: 1.25rem;
+  }
+
+  /* Sheet adjustments */
+  .drafting-viewport {
+    padding: 0.5rem 0.25rem 2rem 0.25rem;
+  }
+
+  .blueprint-sheet {
+    padding: 0.65rem 0.5rem;
+    border: 3px double var(--border-cad);
+  }
+
+  .sheet-border-grid {
+    display: none;
+    /* Hide perimeter A-H and 1-8 coordinates to save screen space */
+  }
+
+  .sheet-content {
+    padding: 0.5rem 0.25rem;
+  }
+
+  .sheet-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding-bottom: 1rem;
+  }
+
+  .sheet-title {
+    font-size: 1.55rem;
+    line-height: 1.15;
+  }
+
+  .sheet-subtitle {
+    font-size: 0.75rem;
+    word-break: break-word;
+  }
+
+  .header-right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .compass-rose {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .drawing-meta-box {
+    font-size: 0.62rem;
+    padding: 0.35rem 0.5rem;
+    flex-grow: 1;
+  }
+
+  .dimension-line {
+    margin: 0.85rem 0;
+  }
+
+  .dim-label {
+    white-space: normal;
+    padding: 0 0.35rem;
+    font-size: 0.6rem;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
+  .transmittal-metadata-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 1.25rem;
+  }
+
+  .meta-cell {
+    border-right: none;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .cell-data {
+    font-size: 0.88rem;
+    word-break: break-word;
+  }
+
+  .section-tag-row {
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .section-bubble {
+    width: 36px;
+    height: 36px;
+  }
+
+  .sec-top {
+    font-size: 0.48rem;
+  }
+
+  .sec-bottom {
+    font-size: 0.7rem;
+  }
+
+  .section-header-text {
+    font-size: 1rem;
+  }
+
+  .architect-handwritten-note {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.75rem;
+    margin: 0.85rem 0 1rem 0;
+  }
+
+  .formal-spec-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .formal-spec-text p {
+    text-align: left;
+    margin-bottom: 0.85rem;
+  }
+
+  .structural-specs-panel {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin: 1.25rem 0;
+  }
+
+  .spec-card {
+    padding: 0.75rem;
+  }
+
+  .spec-list {
+    font-size: 0.78rem;
+    line-height: 1.6;
+    word-break: break-word;
+  }
+
+  .signatures-assembly {
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .sig-block {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .handwritten-sig {
+    font-size: 1.25rem;
+  }
+
+  .architect-seal {
+    width: 110px;
+    height: 110px;
+    right: 2%;
+    bottom: 6%;
+  }
+
+  .seal-inner {
+    padding: 0.25rem;
+  }
+
+  .seal-text-top {
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+
+  .seal-ekd {
+    font-size: 1.4rem;
+    margin: 0.1rem 0;
+  }
+
+  .seal-date {
+    font-size: 0.5rem;
+  }
+
+  .seal-text-bottom {
+    font-size: 0.45rem;
+    letter-spacing: 0.06em;
+  }
+
+  .transmittal-action-module {
+    margin: 1.5rem 0 1rem 0;
+    padding: 1rem 0.75rem;
+  }
+
+  .action-frame {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .action-lead {
+    max-width: 100%;
+  }
+
+  .lead-title {
+    font-size: 1rem;
+  }
+
+  .lead-desc {
+    font-size: 0.72rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .stamp-action-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    min-height: 48px;
+  }
+
+  .cad-title-block {
+    grid-template-columns: 1fr;
+    margin-top: 1.25rem;
+  }
+
+  .block-col {
+    padding: 0.5rem 0.65rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border-cad);
+  }
+
+  .tb-project-name {
+    font-size: 1.1rem;
+  }
+
+  .col-sheet-no {
+    padding: 0.6rem;
+    border-bottom: none;
+  }
+
+  .sheet-number {
+    font-size: 1.5rem;
+  }
+
+  .sheet-bottom-controls {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .sheet-action-link {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.6rem 1rem;
+  }
+
+  .cad-modal {
+    padding: 0.75rem;
+  }
+
+  .modal-dialog {
+    padding: 1.25rem 0.85rem;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+
+  .modal-body h3 {
+    font-size: 1.3rem;
+  }
+
+  .receipt-specs {
+    font-size: 0.7rem;
+  }
+}
+
+/* Compact Mobile Devices (<= 380px) */
+@media (max-width: 380px) {
+  .architect-envelope {
+    height: 250px;
+  }
+
+  .env-script-recipient {
+    font-size: 1.7rem;
+  }
+
+  .env-subtitle {
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+  }
+
+  .sheet-title {
+    font-size: 1.35rem;
+  }
+
+  .stamp-action-btn .btn-text strong {
+    font-size: 0.8rem;
+  }
+}
+
+@media print {
+
+  .no-print,
+  .envelope-stage,
+  .cad-ruler,
+  .drafting-toolbar,
+  .transmittal-action-module,
+  .cad-modal {
+    display: none !important;
+  }
+
+  body.envelope-closed .drafting-viewport {
+    display: block !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  .drafting-viewport {
+    padding: 0 !important;
+  }
+
+  .blueprint-sheet {
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: 2px solid #000000 !important;
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    padding: 1.5cm !important;
+  }
+
+  .cad-title-block,
+  .transmittal-metadata-grid,
+  .spec-card {
+    background: #ffffff !important;
+    border-color: #000000 !important;
+    color: #000000 !important;
+  }
+
+  .sheet-title,
+  .section-header-text,
+  .tb-project-name {
+    color: #000000 !important;
+  }
+
+  .dim-bar,
+  .dim-tick::before {
+    background: #000000 !important;
+  }
+
+  .architect-seal.stamped {
+    display: block !important;
+    opacity: 1 !important;
+  }
+}

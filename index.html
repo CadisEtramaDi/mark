@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EKD - Encourage Kingdom Date | Structural Transmittal</title>
+  <!-- Google Fonts for Architectural Drafting & Elegant Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cinzel:wght@500;700;800&family=Great+Vibes&family=JetBrains+Mono:wght@300;400;500;700&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="blueprint-theme envelope-closed">
+
+
+
+  <!-- =========================================================================
+       STAGE 1: STRUCTURAL PERSPECTIVE ENVELOPE SCENE
+       ========================================================================= -->
+  <section class="envelope-stage" id="envelopeStage">
+
+    <!-- Architectural Moodboard Background Overlay -->
+    <div class="aesthetic-bg-backdrop" aria-hidden="true"></div>
+
+    <!-- Center Interactive Structural Envelope Assembly -->
+    <div class="envelope-wrapper" id="envelopeWrapper">
+      <div class="architect-envelope" id="architectEnvelope">
+
+        <!-- Envelope Top Flap (Folds open in 3D) -->
+        <div class="envelope-flap-top" id="envelopeFlapTop">
+          <svg class="flap-svg" viewBox="0 0 540 180" preserveAspectRatio="none">
+            <polygon points="0,0 540,0 270,180" class="flap-polygon" />
+            <polyline points="10,5 270,172 530,5" class="flap-stitch" stroke-dasharray="6 4" />
+          </svg>
+        </div>
+
+        <!-- Envelope Body (Blueprint Green/Cyan CAD Folder) -->
+        <div class="envelope-front">
+
+          <!-- Blueprint Drafting Grid & Technical Markings -->
+          <div class="env-corner env-corner-tl"></div>
+          <div class="env-corner env-corner-tr"></div>
+          <div class="env-corner env-corner-bl"></div>
+          <div class="env-corner env-corner-br"></div>
+          <div class="env-stitch-border"></div>
+
+          <!-- Technical Stamp/Label at Top -->
+          <div class="env-spec-header">
+            <span class="env-spec-pill">SPEC. TRANSMITTAL // NO. EKD-2026</span>
+            <span class="env-priority">HIGH STRUCTURAL PRIORITY</span>
+          </div>
+
+          <!-- Central Architectural Lettering -->
+          <div class="env-main-text">
+            <div class="env-script-recipient" id="envelopeRecipientDisplay" contenteditable="true" spellcheck="false"
+              title="Click to edit name">For Angela</div>
+            <div class="env-subtitle">
+              <span class="env-sub-tag">SPECIAL KINGDOM TRANSMITTAL</span>
+              <span class="env-sub-divider">✦</span>
+              <span class="env-sub-author">BY MARK</span>
+            </div>
+          </div>
+
+          <!-- Envelope Bottom CAD Dimension Bar -->
+          <div class="env-bottom-bar">
+            <span class="env-micro-coord">X: 120.44 | Y: 890.10</span>
+            <span class="env-micro-verse">1 THESSALONIANS 5:11 [BUILD EACH OTHER UP]</span>
+            <span class="env-micro-scale">SCALE 1:1</span>
+          </div>
+        </div>
+
+        <!-- The Interactive Golden / Bronze Architectural Seal -->
+        <button class="architectural-seal-btn" id="sealOpenBtn" aria-label="Open structural transmittal invitation"
+          title="Click to open structural transmittal">
+          <div class="seal-glow-ring"></div>
+          <div class="seal-metallic-disc">
+            <!-- Architectural Dividers & Compass Icon -->
+            <svg class="seal-icon-svg" viewBox="0 0 100 100">
+              <!-- Rivets Ring -->
+              <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-dasharray="2 6" />
+              <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="2" />
+              <!-- Cross & Drafting Divider Legs -->
+              <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="32" y1="42" x2="68" y2="42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="50" y1="20" x2="28" y2="76" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <line x1="50" y1="20" x2="72" y2="76" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <circle cx="50" cy="20" r="4.5" fill="currentColor" />
+              <path d="M35,60 Q50,52 65,60" fill="none" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            <div class="seal-text-arch">EKD</div>
+          </div>
+        </button>
+
+      </div>
+
+      <!-- Hint prompt underneath matching the user's reference -->
+      <div class="envelope-prompt-text" id="envelopePrompt">
+        <span class="pulse-icon">📐</span>
+        <span>Tap the architectural seal to inspect & open</span>
+        <span class="pulse-icon">📐</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================================================================
+       STAGE 2: THE BLUEPRINT INVITATION SHEET (FULL VIEWPORT)
+       ========================================================================= -->
+  <main class="drafting-viewport" id="draftingViewport">
+
+    <!-- Top & Left Precision Metric CAD Rulers -->
+    <div class="cad-ruler cad-ruler-horizontal" aria-hidden="true">
+      <div class="ruler-marks">
+        <span>00</span><span>50</span><span>100</span><span>150</span><span>200</span>
+        <span>250</span><span>300</span><span>350</span><span>400</span><span>450</span>
+        <span>500</span><span>550</span><span>600</span><span>650</span><span>700</span>
+        <span>750</span><span>800</span><span>850</span><span>900</span><span>950</span>
+      </div>
+    </div>
+    <div class="cad-ruler cad-ruler-vertical" aria-hidden="true">
+      <div class="ruler-marks-v">
+        <span>00</span><span>100</span><span>200</span><span>300</span><span>400</span>
+        <span>500</span><span>600</span><span>700</span><span>800</span><span>900</span>
+        <span>1000</span><span>1100</span><span>1200</span><span>1300</span>
+      </div>
+    </div>
+
+    <!-- The Architectural Blueprint Drawing Sheet -->
+    <article class="blueprint-sheet" id="blueprintSheet">
+
+      <!-- Coordinate Perimeter Frame (Architectural Grid A-H & 1-8) -->
+      <div class="sheet-border-grid">
+        <div class="coord-top">
+          <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
+        </div>
+        <div class="coord-left">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+        </div>
+        <div class="coord-right">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+        </div>
+        <div class="coord-bottom">
+          <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
+        </div>
+      </div>
+
+      <!-- Sheet Inner Drafting Canvas -->
+      <div class="sheet-content">
+
+        <!-- Top Header: Structural Drawing Specifications & Compass -->
+        <header class="sheet-header">
+          <div class="header-left">
+            <div class="spec-classification">PROJECT DOCUMENTATION & STRUCTURAL INVITATION</div>
+            <h1 class="sheet-title">ENCOURAGE KINGDOM DATE</h1>
+            <div class="sheet-subtitle">OFFICIAL NOTICE TO PROCEED // SPECIFICATION EKD-2026-ALPHA</div>
+          </div>
+
+          <div class="header-right">
+            <!-- Architectural North Compass Symbol -->
+            <div class="compass-rose">
+              <svg viewBox="0 0 100 100" class="compass-svg">
+                <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-dasharray="2 3" />
+                <circle cx="50" cy="50" r="34" fill="none" stroke="currentColor" stroke-width="1" />
+                <polygon points="50,10 56,48 50,44 44,48" fill="currentColor" />
+                <polygon points="50,90 56,52 50,56 44,52" fill="none" stroke="currentColor" stroke-width="1" />
+                <polygon points="10,50 48,44 44,50 48,56" fill="none" stroke="currentColor" stroke-width="1" />
+                <polygon points="90,50 52,44 56,50 52,56" fill="none" stroke="currentColor" stroke-width="1" />
+                <text x="50" y="8" font-size="9" text-anchor="middle" fill="currentColor"
+                  font-weight="bold">HEAVENWARD</text>
+              </svg>
+            </div>
+
+            <div class="drawing-meta-box">
+              <div class="meta-row"><span class="lbl">DISCIPLINE:</span> <span class="val">KINGDOM RELATIONAL</span>
+              </div>
+              <div class="meta-row"><span class="lbl">TOLERANCE:</span> <span class="val">100% UNCONDITIONAL LOVE</span>
+              </div>
+              <div class="meta-row"><span class="lbl">STATUS:</span> <span class="val status-issued">ISSUED FOR
+                  FELLOWSHIP</span></div>
+            </div>
+          </div>
+        </header>
+
+
+
+        <!-- Main Body: Structural Invitation Letter -->
+        <section class="letter-drafting-body">
+
+          <!-- Crosshairs & Section Tag -->
+          <div class="section-tag-row">
+            <div class="section-bubble">
+              <span class="sec-top">SEC.</span>
+              <span class="sec-bottom">01</span>
+            </div>
+            <div class="section-title-line">
+              <span class="section-header-text">A BROTHER'S TRANSMITTAL & ENCOURAGEMENT</span>
+              <span class="line-fill"></span>
+              <span class="cad-crosshair">+</span>
+            </div>
+          </div>
+
+          <div class="letter-personal-message">
+            <h2 class="salutation-title">Hello Lith, My Twin in The Faith</h2>
+
+            <p class="letter-para">
+              Please know that you are an awesome sister.
+            </p>
+
+            <p class="letter-para">
+              Thank you for staying Faithful sa Kingdom ni God. I always see you as a genuine, pure and loving sister.
+              Bright pajuddd and Pang Egyptian ang Beauty eyyyy..
+            </p>
+
+            <p class="letter-para">
+              Thank you for accepting my Invite. As your Brother in faith I want to encourage you in so many ways
+              because you deserve it.
+            </p>
+          </div>
+
+          <!-- Scripture Callout -->
+          <div class="architect-handwritten-note">
+            <div class="verse-reference">1 Thessalonians 5:11</div>
+            "[11] Therefore encourage one another and build each other up, just as in fact you are doing."
+          </div>
+
+          <div class="letter-closing-phrase">
+            <p class="closing-thanks">Salamat Kaayo.</p>
+          </div>
+
+          <!-- Architectural Signature Block -->
+          <div class="signatures-assembly">
+            <div class="sig-block">
+              <div class="sig-line">
+                <span class="handwritten-sig">Mark, Your Brother in Faith</span>
+              </div>
+              <div class="sig-role">ORIGINATING ARCHITECTURAL COMMITTEE</div>
+              <div class="sig-meta">LICENSED KINGDOM BUILDER</div>
+            </div>
+
+            <div class="sig-block">
+              <div class="sig-line">
+                <span class="handwritten-sig" id="recipientSigDisplay" contenteditable="true" spellcheck="false"
+                  title="Click to edit name">Angela</span>
+              </div>
+              <div class="sig-role">MY TWIN IN THE FAITH</div>
+              <div class="sig-meta">STATUS: ACCEPTED WITH JOY</div>
+            </div>
+          </div>
+
+          <!-- Dynamic Architectural Ink Seal / Rubber Stamp (Hidden until confirmed) -->
+          <div class="architect-seal" id="architectSeal" aria-hidden="true">
+            <div class="seal-inner">
+              <div class="seal-ring outer-ring"></div>
+              <div class="seal-ring inner-ring"></div>
+              <div class="seal-text-top">OFFICIALLY REGISTERED</div>
+              <div class="seal-ekd">EKD</div>
+              <div class="seal-date" id="sealTimestamp">VERIFIED</div>
+              <div class="seal-text-bottom">ENCOURAGE KINGDOM DATE</div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Interactive RSVP / Authorization Module -->
+        <section class="transmittal-action-module no-print">
+          <div class="action-frame">
+            <div class="action-buttons">
+              <button id="acceptRsvpBtn" class="stamp-action-btn accept-btn">
+                <span class="btn-icon">✓</span>
+                <span class="btn-text">
+                  <strong>AFFIRM ATTENDANCE</strong>
+                  <small>STAMP SHEET AS CONFIRMED</small>
+                </span>
+              </button>
+
+              <button id="declineRsvpBtn" class="stamp-action-btn decline-btn">
+                <span class="btn-icon">✕</span>
+                <span class="btn-text">
+                  <strong>UNABLE TO ATTEND</strong>
+                  <small>TRANSMIT REGRETS WITH BLESSINGS</small>
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sheet Utility Navigation (Return to Envelope) -->
+        <div class="sheet-bottom-controls no-print">
+          <button id="returnToEnvelopeBtn" class="sheet-action-link" title="Fold drawing back into envelope">
+            <span>✉</span> FOLD BACK INTO ENVELOPE
+          </button>
+        </div>
+
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Interactive Transmittal Receipt Modal (Appears upon RSVP confirmation) -->
+  <aside class="cad-modal" id="rsvpModal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span class="badge-dot"></span>
+          <span>STRUCTURAL TRANSMITTAL RECEIPT // EKD-CONFIRMED</span>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="receipt-icon">📐</div>
+        <h3 id="receiptHeading">CONSTRUCTION ORDER CONFIRMED!</h3>
+        <p id="receiptMessage">
+          Thank you, <strong id="modalGuestName">Lith</strong>. Your place at the <strong>Encourage Kingdom
+            Date</strong> has been firmly drafted into the master schedule.
+        </p>
+        <div class="receipt-specs">
+          <div class="rec-row"><span>TRANSMITTAL ID:</span> <strong id="transmittalId">EKD-9482-OK</strong></div>
+          <div class="rec-row"><span>STATUS:</span> <strong class="text-green">CONFIRMED & SEALED</strong></div>
+          <div class="rec-row"><span>FOUNDATION VERSE:</span> <em>"Iron sharpens iron, and one man sharpens another."
+              (Prov 27:17)</em></div>
+        </div>
+        <div class="modal-notice">
+          Tip: You can screenshot or save this transmittal drawing sheet for your personal keepsake.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="cad-btn modal-btn" id="modalOkBtn">ACKNOWLEDGE & CLOSE</button>
+      </div>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
